@@ -1,0 +1,64 @@
+name: UGREEN checker
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: UGREEN's official checker on the exact release ZIP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Download UGREEN's Skill kit 0.7.7 from the official starter-kit link and verify its SHA-256
+        run: |
+          set -euo pipefail
+          curl -fsSL -o kit.zip "https://cdn.shopify.com/s/files/1/0630/9416/1602/files/uliya-skill-kit-0.7.7-en.zip?v=1794462613"
+          echo "e3a9c6a7b80b5790865aa1eea310a942904993693a021888b5f9d580f35d8a67  kit.zip" | sha256sum -c -
+          unzip -q kit.zip -d "$RUNNER_TEMP/kit"
+          test -f "$RUNNER_TEMP/kit/uliya-skill-kit/scripts/check-skill.mjs"
+
+      - name: Check the release ZIP against its hash, its layout and the close-up folder
+        run: |
+          set -euo pipefail
+          (cd release && sha256sum -c SHA256SUMS)
+          test "$(unzip -Z1 release/close-up.zip | cut -d/ -f1 | sort -u)" = "close-up"
+          mkdir -p "$RUNNER_TEMP/rel"
+          unzip -q release/close-up.zip -d "$RUNNER_TEMP/rel"
+          diff -r "$RUNNER_TEMP/rel/close-up" close-up
+          echo "release/close-up.zip matches its SHA-256 and the close-up folder byte for byte"
+
+      - name: Run UGREEN's checker on the folder inside the release ZIP
+        run: |
+          set +e
+          node "$RUNNER_TEMP/kit/uliya-skill-kit/scripts/check-skill.mjs" "$RUNNER_TEMP/rel/close-up" > result.json
+          rc=$?
+          set -e
+          echo "checker exit=$rc"
+          cat result.json
+          python3 - <<'EOF'
+          import json, os, sys
+          j = json.load(open("result.json"))
+          s = j["summary"]
+          line = "%s, catalog %s: errors=%d warnings=%d info=%d" % (j["status"], j["catalog"]["checkedVersion"], s["errors"], s["warnings"], s["info"])
+          print(line)
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+              f.write("UGREEN checker on release/close-up.zip: " + line + "\n")
+          sys.exit(1 if (s["errors"] or s["warnings"]) else 0)
+          EOF
+          test "$rc" -eq 0
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ugreen-checker-result
+          path: result.json
