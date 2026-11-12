@@ -10,7 +10,7 @@ Close-Up is a Markdown-only Skill for Uliya, the assistant on UGREEN AI NAS. It 
 
 Every push downloads UGREEN's own Skill kit 0.7.7 from the official starter-kit link, checks the kit's SHA-256, and runs UGREEN's checker on the folder inside the exact ZIP I submitted ([release/close-up.zip](release/close-up.zip), SHA-256 `e340e7f063998eba43e2424a21d0d217e9bc17e09133f3fd63e1d0ee583bd513`). The job fails on any error or warning. The latest result is 0 errors and 0 warnings.
 
-To run the same check on your own computer, from a clone of this repo (needs Node; the CI uses Node 22):
+To run the same check on your own computer, from a clone of this repo (needs Node, and the CI uses Node 22):
 
 ```sh
 curl -fL -o kit.zip "https://cdn.shopify.com/s/files/1/0630/9416/1602/files/uliya-skill-kit-0.7.7-en.zip?v=1794462613"
