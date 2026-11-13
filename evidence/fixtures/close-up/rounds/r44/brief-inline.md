@@ -1,0 +1,27 @@
+You are an adversarial reviewer (round 44, DIFF-SCOPED). Everything you need is pasted below; you do not need to open files. Do not create or modify anything.
+
+The package is a Markdown-only "Uliya Skill" for a UGREEN AI NAS hackathon. It helps a family caregiver make or refresh the page police ask for when a relative with dementia goes missing. A small on-device model is the parent that follows SKILL.md and may only write delegate --target <expert> --instruction '<task>' lines; child experts pick their own catalog actions. UGREEN's rules: use only real results an expert returns, handle completed, failed, cancelled, waiting_user and waiting_approval, never widen a search on its own, and every write (state-change action) needs approval. UGREEN's checker reads SKILL.md line by line and rejects a delegate line holding a pipe, a redirect, two ampersands, two pipes, a dollar sign before a bracket or a backticked span.
+
+Your round 42 findings were fixed, and Codex round 43 on that text (package at 9d2a3c3) returned no findings. Since then the package gained:
+- Medicine label photos. Question 6 asks for the image files of the medicine labels, or none. {LABEL_PATHS} holds their real paths. After the notes delegation, a photo-agent delegation reads the printed text of each named file with OCR (ug-photo vision-ocr, read, no approval). From the returned text only, the parent proposes one line per medicine (name, strength and directions as printed, never a prescription, refill, pharmacy, prescriber or patient number), sends M32 and keeps only the lines the caregiver confirms or fixes (waiting_user). With no readable text in any file it sends M33 and keeps the caregiver's own answer to question 6. Confirmed lines go on the page as "Medicines from bottle labels: ... (from a bottle label, confirmed by you)". limits.md marks the OCR action NOT VERIFIED on a NAS. It never identifies a pill by its look.
+- A credential-file rule: credential and system files (.env files, .git and .ssh folders, config.json, key and certificate files) are never searched or read, even inside a named folder. If a named notes file or photo is one of these, it is not read and the caregiver is told. The folder find (step 5b) carries a skip sentence.
+- disclosures.md gained a "Licence, author and version" section.
+- D31: the hand line is labelled "Dominant hand: {answer}". D32: an unanswered first-run question counts as skipped.
+- testing.md's results paragraph was rewritten from a 23-case fixture pass (final13).
+The diff of all changes since round 43 is at the end.
+
+SCOPE. Review ONLY (a) the lines changed in that diff and whatever they touch, and (b) this fixed checklist over the whole package:
+1. Every delegate line is one line, single-quoted, has no pipe, redirect, two ampersands, two pipes, dollar sign before a bracket or backticked span, writes apostrophes as '"'"', and targets one of photo-agent, knowledge-agent, document-agent, file-agent, security-monitor-agent.
+2. Every message id used in SKILL.md exists in messages.md, and M1 (built from M22) still reads as one complete message.
+3. Every {VALUE} used is defined in the values table and is set before it is used.
+4. Every delegation has a path for completed, failed, cancelled, waiting_user and waiting_approval.
+5. Each write (the page save and the album create) waits for its approval and is sent once.
+6. The emergency path E0 to E4 runs end to end with no dead end.
+7. Every page line in page-format.md names its source.
+8. Nothing on the page or in a message can carry a prescription, refill, pharmacy, prescriber, patient, ID, transmitter, account, licence or Social Security number, and no credential or system file can be read or passed to an expert.
+Settled, do not re-raise without new evidence from the pasted catalog or references: notes are read by document-agent with every-line-or-no-line; the HumanFace topic is excluded on purpose; the camera status filter, camera_id alone, photo display in the chat, NAS local time for events, album-detail photo items, the \n round trip and the OCR action's stability are NOT VERIFIED until the NAS day, each with a limits row; no README in the package (UGREEN's checker rejects any root file other than SKILL.md and references/); the word ceiling is 9,300 and the package is at 9,298; the police email is paraphrased because its author has not agreed to be quoted; M19 says to call first, against the Alzheimer's Association's 15-minute search, and sources.md records why; E1 never shows or retypes the saved page (M30, M31, M27, M29) on purpose; the testing.md counts are measured in the test fixtures, which are not pasted, so do not report the numbers themselves, only a sentence that contradicts the package. Do not report anything outside the scope above.
+
+Report a numbered list ordered by severity (CRITICAL, HIGH, MEDIUM, LOW). For each: file, the exact text quoted, why it is wrong, and the smallest fix. Honesty rules: quote real text only; say "could not verify" when you cannot; do not pad; say "none found" for an empty category. If you find nothing wrong in scope, say exactly "No findings." End with one line: TOTAL findings by severity.
+
+
+===== [The pasted material that followed in the brief sent to the reviewer (catalog entries, kit references, every package file and the diff) is left out of this public copy. The package is public as close-up/ and in git history.] =====

@@ -1,0 +1,2 @@
+model grok-4.7, reasoning effort xhigh, package b2 618e83a, started 2026-11-13 01:48 EST
+first run stopped by Claude Code on memory pressure (a 3 GB local vision model loaded by the orchestrator session at the same time, its own report), no output, not counted. Rerun unchanged, same brief, package b2 618e83a, started 2026-11-13 02:16 EST

@@ -1,0 +1,1 @@
+model grok-4.7, reasoning effort xhigh, whole package (the one whole-package round after clean diff-scoped round 74), package b2 748f39a, started 2026-11-13 03:36 EST

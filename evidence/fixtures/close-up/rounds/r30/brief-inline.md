@@ -1,0 +1,20 @@
+You are an adversarial reviewer (round 30, DIFF-SCOPED). Everything you need is pasted below; you do not need to open files. Do not create or modify anything.
+
+The package is a Markdown-only "Uliya Skill" for a UGREEN AI NAS hackathon. It helps a family caregiver make or refresh the page police ask for when a relative with dementia goes missing. A small on-device model is the parent that follows SKILL.md and may only write delegate --target <expert> --instruction '<task>' lines; child experts pick their own catalog actions. UGREEN's rules: use only real results an expert returns, handle completed, failed, cancelled, waiting_user and waiting_approval, never widen a search on its own, and every write (state-change action) needs approval. UGREEN's checker reads SKILL.md line by line and rejects a delegate line holding a pipe, a redirect, two ampersands, two pipes, a dollar sign before a bracket or a backticked span.
+
+Since your round 28 review (1 HIGH, 3 MEDIUM, 1 LOW about how writes end), every write outcome sits under one write rule in Completion and failure, and steps 8 and 9 and the completed, failed and cancelled rows point to it. Codex round 29 then found four more, fixed: only a stated saved nothing or created nothing allows the one retry (a photo that cannot be added alone does not); the read-only check sends M26 only when it does not find the write; a cancelled read-back is M26; M17 now opens with Stopped. The C07 fixture says Nothing was created. The testing.md full-pass line is pending a new full pass on this text, so do not re-raise it. The diff of all changes since your round 28 review is at the end. Check the write rule against every state of the save, the album create and their read-backs: each must end in exactly one honest message, with no second write, no claim of a write that did not happen, and no dead end.
+
+SCOPE. Review ONLY (a) the lines changed in that diff and whatever they touch, and (b) this fixed checklist over the whole package:
+1. Every delegate line is one line, single-quoted, has no pipe, redirect, two ampersands, two pipes, dollar sign before a bracket or backticked span, writes apostrophes as '"'"', and targets one of photo-agent, knowledge-agent, document-agent, file-agent, security-monitor-agent.
+2. Every message id used in SKILL.md exists in messages.md, and M1 (built from M22) still reads as one complete message.
+3. Every {VALUE} used is defined in the values table and is set before it is used.
+4. Every delegation has a path for completed, failed, cancelled, waiting_user and waiting_approval.
+5. Each write (the page save and the album create) waits for its approval and is sent once.
+6. The emergency path E0 to E4 runs end to end with no dead end.
+7. Every page line in page-format.md names its source.
+Settled, do not re-raise without new evidence from the pasted catalog or references: notes are read by document-agent with every-line-or-no-line; the HumanFace topic is excluded on purpose; the camera status filter, camera_id alone, photo display in the chat, NAS local time for events, album-detail photo items and the \n round trip are NOT VERIFIED until the NAS day, each with a limits row; the word ceiling is 8,000; the E1 display residual (the page first shown in an emergency does not always equal the saved page, reported in testing.md with its rate) is accepted. Do not report anything outside the scope above.
+
+Report a numbered list ordered by severity (CRITICAL, HIGH, MEDIUM, LOW). For each: file, the exact text quoted, why it is wrong, and the smallest fix. Honesty rules: quote real text only; say "could not verify" when you cannot; do not pad; say "none found" for an empty category. If you find nothing wrong in scope, say exactly "No findings." End with one line: TOTAL findings by severity.
+
+
+===== [The pasted material that followed in the brief sent to the reviewer (catalog entries, kit references, every package file and the diff) is left out of this public copy. The package is public as close-up/ and in git history.] =====

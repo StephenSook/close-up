@@ -1,0 +1,3 @@
+No findings.
+
+TOTAL findings by severity: CRITICAL 0, HIGH 0, MEDIUM 0, LOW 0.

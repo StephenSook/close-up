@@ -1,0 +1,9 @@
+# Round 46 adjudication (Grok, diff-scoped since round 44; written 2026-11-12 14:57 EST, shell clock)
+
+Grok exited 0 with a complete 13-line report (grok.md), read in full: 0 CRITICAL, 2 HIGH, 1 MEDIUM, 0 LOW. Its first line says the middle of the pasted diff looked cut off and that it read that section. Every quote in the report matches the package at 75af396, so the review covered the changed lines.
+
+1. HIGH as filed, adopted as a clarification. "{PAGES_FOLDER} put before a bare name" names no separator, so a literal join could glue the name to the folder. No run did: 0 glued paths in every saved transcript, because the experts return full paths and runs join with a slash. Fix: "a bare name joined to {PAGES_FOLDER} with one slash".
+2. HIGH, adopted. A failed user-folder reply also has no path, so "Failed: M10, one retry, then M3. No path: M3." let both sentences apply, did not say what follows a retry that returns a path, and left a "no" to M10 between step 2 and the failed row. Fix: "Failed: M10 and one retry. Completed with no path, a no or a second failure: M3, which waits (waiting_user), then step 3 runs with the folder named." Each reply now matches one sentence, a retry that returns a path goes on as normal, and a "no" goes to M3 rather than stopping, since asking for a folder keeps the page possible. C28 and C29 keep their exact routes.
+3. MEDIUM, adopted. On the album wait the page is already saved, so M34's "Nothing is written until you approve" was false there. M34 now ends "It is not done until you approve." Not adopted: Grok's view that M34 is itself an approval question. It is a status line that points to the platform's approval and asks nothing.
+
+Paid for by removing install-and-removal.md setup line 5 ("Every save and album waits for your approval."), which is not a setup action and repeats SKILL.md's write rule and M34. Package after the fixes: 9,299 words, port 0/0/0, semcount 0/0, lint 0 errors.

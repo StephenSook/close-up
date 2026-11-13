@@ -1,0 +1,1 @@
+model gpt-6-astra, model_reasoning_effort=max, whole package (recorded 2026-11-13 08:19 EST)

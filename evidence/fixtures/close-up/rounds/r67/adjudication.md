@@ -1,0 +1,15 @@
+# Round 67 adjudication (Grok grok-4.7, reasoning effort xhigh, whole package at 74c1f21, written 2026-11-13 00:57 EST, shell clock)
+
+Grok reported 0 CRITICAL, 2 HIGH, 3 MEDIUM and 2 LOW. Each was checked against the package lines it quotes.
+
+| # | Finding | Verdict | Change |
+|---|---|---|---|
+| 1 | HIGH: {CHOSEN_PHOTOS} is a picture ID, the album read-back is asked for "every photo item it holds, with the file path of each", so a correct album would fail the M23 test | Declined. The read-back returns the photo items and, beside each, its path. Step 9 compares the items listed, so extra details do not make a different photo. limits.md says "M24 only for a different photo". C24, whose read-back adds a file name, date and library, expects M23 and got it in final14, final15 and final16. On the folder route {CHOSEN_PHOTOS} is the path, which the read-back also returns | none |
+| 2 | HIGH: a failed step whose one retry also fails has no way on (the failed row names only the caregiver's no), so an emergency run can stop before E4 | Adopted | The failed row reads "If the caregiver says no, or the retry fails too, stop only the steps that need it". f3cb820 |
+| 3 | MEDIUM: the album write rule ("M17, then the step 8 page message") and step 10 ("close with one page message") can both send the page message, and so can the cancelled row | Adopted | The album write rule and the cancelled row now end "M17 ..., then step 10", so step 10 sends the one page message (10 words fewer). b0165e4 |
+| 4 | MEDIUM: step 7's compare names {LAST_PAGE_TEXT} on a first page, where it is never set | Adopted in other words: "When a last page was read" also covers a last page made in an emergency, which still gets the first-run list | Step 7 reads "When a last page was read, compare {LAST_PAGE_TEXT} ...". 6b1ecc4 |
+| 5 | MEDIUM: step 0's "end this run as written" can read as stopping right after M19 and M22, with the save's approval still open and no page message | Adopted in other words. The intent is to finish the run's own steps. Grok's longer fix would also drop the album, which is a design change | "finish this run as written". 74ac3e3 |
+| 6 | LOW: a calm page and an emergency page on the same day share a file hint | Declined. The save says "Create a new file and never overwrite, change or delete any other file", a save that cannot be made follows the write rule, and step 3 reads the newest page. Putting the clock time in the hint would change step 3's name matching ("Close-Up page {PERSON} followed by a date") right before final17. How the expert names a second same-day file is NOT VERIFIED until the NAS day | none |
+| 7 | LOW: "Do not search the disk and change nothing." stacks two negatives on one verb | Adopted | "Do not search the disk. Change nothing." check_templates.py reads the new line (a final16 C01 copy with it has one fewer off-template delegation). e919710 |
+
+The ceiling moved 9,794 to 9,799, then the package fell to 9,789 and rose to 9,795, all logged. Its log is corrected in 1d0aef8. Round 68 goes to Codex on the result.

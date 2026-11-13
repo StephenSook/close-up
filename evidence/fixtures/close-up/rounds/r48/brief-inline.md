@@ -1,0 +1,27 @@
+You are an adversarial reviewer (round 48, DIFF-SCOPED). Everything you need is pasted below; you do not need to open files. Do not create or modify anything.
+
+The package is a Markdown-only "Uliya Skill" for a UGREEN AI NAS hackathon. It helps a family caregiver make or refresh the page police ask for when a relative with dementia goes missing. A small on-device model is the parent that follows SKILL.md and may only write delegate --target <expert> --instruction '<task>' lines; child experts pick their own catalog actions. UGREEN's rules: use only real catalog actions and agents, Markdown only, SKILL.md plus references/.
+
+Your round 46 findings (the one-slash page path, exclusive step 2 routes, M34 wording) were all adopted at package 323c2fa, and Codex round 47 reviewed that package and found nothing. A 31-case fixture pass on 323c2fa then found these, and the package now carries their fixes:
+- D38: one run's save delegation carried a placeholder ("[the full approved page above, ... exactly as previewed]") instead of the page, then compared the read-back with what it had sent and sent M20. Rules now read "Fill every value with its real value, unchanged, never a summary or a pointer to it." Step 8 now compares "line by line with {PAGE_TEXT}, the page as previewed, never with the text sent", and "Any other text, even a placeholder, M14."
+- D39: notes written on the same line as a delegate line. The one-line rule now ends "with nothing else on it."
+- D40: step 0 now reads "Whenever the person is missing now, even mid-step, go to E0."
+- D41: the Emergency line adds "Never guess where they went or say they will be found."
+- To stay under the 9,300-word ceiling: step 10 now says "then one album message only when step 9 created the album, the one step 9 picked" instead of restating M23, M24 and M26; the rule line "Label dates taken or file date." was removed; the M25 example is shorter; testing.md's States table is one sentence, its case lines are shorter and list C24 to C34, and its results paragraph gives the last pass's numbers; limits.md drops one SOURCED line and now says medicines can be "label lines they confirmed".
+The diff of all changes since round 47 (package 323c2fa to now) is at the end. Check in particular: whether "the page as previewed" could make step 8 compare the preview's header lines (folder, file name, approvals) and send M14 for a correct save; whether "never with the text sent" conflicts with the write rule, which finds an unconfirmed save by comparing a listed page with {PAGE_TEXT}; whether step 10's "the one step 9 picked" still covers M23, M24 and M26, including a read-back that fails twice and an album that was never created; whether removing "Label dates taken or file date." leaves any date in a message or page line without its capture-or-file-date label; whether "even mid-step" can fire inside a write that is waiting_approval, and what then happens to that write; whether "Never guess where they went" stops M29 or any fixed message the emergency path needs; whether testing.md and limits.md still state only true things.
+
+SCOPE. Review ONLY (a) the lines changed in that diff and whatever they touch, and (b) this fixed checklist over the whole package:
+1. Every delegate line is one line, single-quoted, has no pipe, redirect, two ampersands, two pipes, dollar sign before a bracket or backticked span, writes apostrophes as '"'"', and targets one of photo-agent, knowledge-agent, document-agent, file-agent, security-monitor-agent.
+2. Every message id used in SKILL.md exists in messages.md, and M1 (built from M22) still reads as one complete message.
+3. Every {VALUE} used is defined in the values table and is set before it is used.
+4. Every delegation has a path for completed, failed, cancelled, waiting_user and waiting_approval.
+5. Each write (the page save and the album create) waits for its approval and is sent once.
+6. The emergency path E0 to E4 runs end to end with no dead end.
+7. Every page line in page-format.md names its source.
+8. Nothing on the page or in a message can carry a prescription, refill, pharmacy, prescriber, patient, ID, transmitter, account, licence or Social Security number, and no credential or system file can be read or passed to an expert.
+Settled, do not re-raise without new evidence from the pasted catalog or references: notes are read by document-agent with every-line-or-no-line; the HumanFace topic is excluded on purpose; the camera status filter, camera_id alone, photo display in the chat, NAS local time for events, album-detail photo items, the \n round trip and the OCR action's stability are NOT VERIFIED until the NAS day, each with a stated fallback; add-item with the one named photo is the album route; the "only if answered" lines vanish when unanswered on purpose.
+
+Report a numbered list ordered by severity (CRITICAL, HIGH, MEDIUM, LOW). For each: file, the exact text quoted, why it is wrong, and the smallest fix. Honesty rules: quote real text only; say "could not verify" when you cannot; do not pad; say "none found" for an empty category. If you find nothing wrong in scope, say exactly "No findings." End with one line: TOTAL findings by severity.
+
+
+===== [The pasted material that followed in the brief sent to the reviewer (catalog entries, kit references, every package file and the diff) is left out of this public copy. The package is public as close-up/ and in git history.] =====

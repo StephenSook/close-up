@@ -1,0 +1,1 @@
+model grok-4.7, --reasoning-effort xhigh, web search off, no subagents, whole package (recorded 2026-11-13 05:40 EST)

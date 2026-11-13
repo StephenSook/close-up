@@ -1,0 +1,11 @@
+# Round 50 adjudication (Grok, diff-scoped, written 2026-11-12 17:09 EST, shell clock)
+
+Grok exited 0, stderr empty, the 64-line report was read in full. CRITICAL 0, HIGH 1, MEDIUM 2, LOW 0. All three checked against the package and all three real. All three are about step 0's rule for a write already sent when "missing now" arrives, the third round running (r48, r49, r50) to find a new hole in that rule:
+
+1. HIGH. A save that completes with no file, where the write rule's step 3 check finds no matching page (M26), leaves a new file that is not "a page this run saved", so E1 reads it, sends M30 and refreshes from it.
+2. MEDIUM. A read-back that differs sends M14 ("Check it before printing"), then E1's unreadable branch sends M5 and a short page saying the page "could not be read", which contradicts M14.
+3. MEDIUM. "with no retry or M17" leaves a save that wrote nothing, or a cancelled one, with no message at all, and drops the album's "then the step 8 page message".
+
+Not adopted as proposed; resolved by a smaller design instead. Each round's patch made the in-flight rule longer and opened the next branch. Step 0 now reads: "0. Whenever the person is missing now, even mid-step, go to E0. Once a save is sent, send M19 and M22, then finish this run." Before a save is sent, the run goes to E0 as before (the C33 case, during the first-run questions). Once one is sent, the caregiver hears the call-the-police message and the cloud statement at once, and the calm run then ends under its normal rules and messages: M20, M14, M26, M10 with its retry, M17, the album and step 10, all as written for a calm run. E1 to E4 do not start in that run, so no emergency message can contradict the write's outcome, and the page the caregiver approved minutes before is the one they print. That removes the round 48 and 49 additions ("Before E1, a sent write ends by its own rules and message, with no retry or M17. E1 treats a page this run saved without M20 as unreadable.") and with them every branch these three findings describe.
+
+Package 9,283 words. Port static-pass 0/0, lint 0 errors (the same 4 accepted warnings), semcount 0/0, privscan clean. Codex round 51 reviews this and the album change (D42) together.

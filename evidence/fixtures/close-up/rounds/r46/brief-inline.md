@@ -1,0 +1,30 @@
+You are an adversarial reviewer (round 46, DIFF-SCOPED). Everything you need is pasted below; you do not need to open files. Do not create or modify anything.
+
+The package is a Markdown-only "Uliya Skill" for a UGREEN AI NAS hackathon. It helps a family caregiver make or refresh the page police ask for when a relative with dementia goes missing. A small on-device model is the parent that follows SKILL.md and may only write delegate --target <expert> --instruction '<task>' lines; child experts pick their own catalog actions. UGREEN's rules: use only real results an expert returns, handle completed, failed, cancelled, waiting_user and waiting_approval, never widen a search on its own, and every write (state-change action) needs approval. UGREEN's checker reads SKILL.md line by line and rejects a delegate line holding a pipe, a redirect, two ampersands, two pipes, a dollar sign before a bracket or a backticked span.
+
+Your round 44 findings (the number ban, M33 for text with no medicine, the medicine lines in the per-message exception) were all adopted. Codex round 45 then reviewed everything since its round 43. Since your round 44 the package gained:
+- D33: {CHOSEN_PHOTOS} is "the picked photo item or path alone, no date, library or description", because fixture runs named the photo with its date and library in the album create.
+- D34: {PAGE_FILE} is "the full path of a page file an expert returned, {PAGES_FOLDER} put before a bare name", so the read-back template has no conditional clause. M20 and M30 no longer repeat "in {PAGES_FOLDER}".
+- Step 2: "Failed: M10, one retry, then M3. No path: M3." The completed row says "step 2 for no path".
+- D35: the number ban covers messages too ("on the page or in a message"), with the design reason "The page is printed and shared, so it names the program instead, for the call (M19, M27)."
+- D36: a fixed message M34 ("Waiting for your approval: {the page file in its folder, or the album in UGREEN Photos}. Nothing is written until you approve.") and the waiting_approval row "Only after an expert returns it: send M34 first."
+- D37: E4 says "Preview the whole page, refreshed or short, and ask ...", and E1 says "never show or retype its text before the E4 preview".
+- Codex round 45: the ban now adds "It outranks word-for-word rules.", because E4 keeps saved lines and M18 quotes a rejected notes line. Codex's other finding (use a search reference, not add-item, for the album) was not adopted: add-item takes "picture IDs the user named explicitly" and the caregiver names the one photo.
+- The Goal paragraph, the first-run header and some testing.md case lines were shortened to stay under the 9,300-word ceiling.
+The diff of all changes since your round 44 is at the end. Check in particular: whether M34 can collide with "After the preview yes, send the save at once, with no approval question of your own"; whether E1's scoped ban still stops the saved page being shown before E4; whether step 2 and the completed row give one route each; whether any path can still put a banned number on the page or in a message.
+
+SCOPE. Review ONLY (a) the lines changed in that diff and whatever they touch, and (b) this fixed checklist over the whole package:
+1. Every delegate line is one line, single-quoted, has no pipe, redirect, two ampersands, two pipes, dollar sign before a bracket or backticked span, writes apostrophes as '"'"', and targets one of photo-agent, knowledge-agent, document-agent, file-agent, security-monitor-agent.
+2. Every message id used in SKILL.md exists in messages.md, and M1 (built from M22) still reads as one complete message.
+3. Every {VALUE} used is defined in the values table and is set before it is used.
+4. Every delegation has a path for completed, failed, cancelled, waiting_user and waiting_approval.
+5. Each write (the page save and the album create) waits for its approval and is sent once.
+6. The emergency path E0 to E4 runs end to end with no dead end.
+7. Every page line in page-format.md names its source.
+8. Nothing on the page or in a message can carry a prescription, refill, pharmacy, prescriber, patient, ID, transmitter, account, licence or Social Security number, and no credential or system file can be read or passed to an expert.
+Settled, do not re-raise without new evidence from the pasted catalog or references: notes are read by document-agent with every-line-or-no-line; the HumanFace topic is excluded on purpose; the camera status filter, camera_id alone, photo display in the chat, NAS local time for events, album-detail photo items, the \n round trip and the OCR action's stability are NOT VERIFIED until the NAS day, each with a limits row; no README in the package (UGREEN's checker rejects any root file other than SKILL.md and references/); the word ceiling is 9,300 and the package is at 9,298; the police email is paraphrased because its author has not agreed to be quoted; M19 says to call first, against the Alzheimer's Association's 15-minute search, and sources.md records why; E1 does not show or retype the saved page before the E4 preview (M30, M31, M27, M29) on purpose; the album create passes the picked photo's ID with add-item (see the Codex round 45 note above); the testing.md counts are measured in the test fixtures, which are not pasted, so do not report the numbers themselves, only a sentence that contradicts the package. Do not report anything outside the scope above.
+
+Report a numbered list ordered by severity (CRITICAL, HIGH, MEDIUM, LOW). For each: file, the exact text quoted, why it is wrong, and the smallest fix. Honesty rules: quote real text only; say "could not verify" when you cannot; do not pad; say "none found" for an empty category. If you find nothing wrong in scope, say exactly "No findings." End with one line: TOTAL findings by severity.
+
+
+===== [The pasted material that followed in the brief sent to the reviewer (catalog entries, kit references, every package file and the diff) is left out of this public copy. The package is public as close-up/ and in git history.] =====

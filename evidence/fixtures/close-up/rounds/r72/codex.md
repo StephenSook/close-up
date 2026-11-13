@@ -1,0 +1,7 @@
+1. **HIGH: An older camera sighting can overwrite newer clothing information.** [SKILL.md:111](skill-check-b2/skills/close-up/SKILL.md:111) says: "Clothing stated with a named moment from today replaces the E1 clothing answer". But [sources.md:72](skill-check-b2/skills/close-up/references/sources.md:72) specifies "what they were last seen wearing". If E1 reports a red coat seen at 10:00 and E2 identifies a blue coat at 09:00, the rule replaces the newer information with the older clothing merely because both observations happened today. E4 then saves it. **Smallest fix:** replace E1 clothing only when the camera observation is newer; ask which observation is later when unclear.
+
+2. **MEDIUM: The folder route assumes the original is accessible through UGREEN Photos.** [page-format.md:11](skill-check-b2/skills/close-up/references/page-format.md:11) says "(or the photo folder {path}) in UGREEN Photos". [limits.md:17](skill-check-b2/skills/close-up/references/limits.md:17) likewise directs the caregiver to open it there before picking. However, [install-and-removal.md:30](skill-check-b2/skills/close-up/references/install-and-removal.md:30) explicitly allows "a folder file outside the photo library". The folder search does not establish availability in Photos, so these directions lack a usable fallback for that case. **Smallest fix:** direct folder-route users to the returned path in Files; retain UGREEN Photos for the album route.
+
+CRITICAL and LOW: none found.
+
+TOTAL findings by severity: CRITICAL 0, HIGH 1, MEDIUM 1, LOW 0.

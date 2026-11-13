@@ -1,0 +1,9 @@
+# Round 55 adjudication (Codex, diff-scoped, written 2026-11-12 17:51 EST, shell clock)
+
+Codex exited 0, the 46-line report was read in full (local paths stripped before commit). CRITICAL 0, HIGH 1, MEDIUM 1, LOW 1. All three checked against the package and all real.
+
+1. HIGH, adopted (from the whole-package checklist, item 8). Step 3's delegation lists files starting "Close-Up page" and reads the newest one named for the person, whatever its type, so a key or certificate file with that name would be read inside the delegation before the parent could see its path. The rule "Never searched or read ... credential and system files" was not inside that delegation. Fix: the list takes only files that "start with Close-Up page and end in .md". Every page the Skill saves is a Markdown file, and every page name in the fixtures ends in .md, so no expected outcome changes.
+2. MEDIUM, adopted. M35's {trait} and {answer} were never set, and "hair" did not say colour or length, so "grey" against "short brown" could replace the whole Hair answer. Fix: "when the checked new photo's hair colour or length, glasses or hearing aid contradicts that part of its line as it now stands, send M35 with both". "Checked" excludes a photo the vision check did not run on, and "as it now stands" uses the answer after this run's accepted changes.
+3. LOW, adopted. E0's "Before any expert runs, send M19" cannot hold when step 0 enters E0 mid-step with an expert already running. Fix: "At once, send M19, then M22 ...". Step 0 still lets that expert finish before E1.
+
+Commits 36dc8a3 (lint ceiling 9,385, on the orchestrator's go), 1f655a4 (these three) and 80bf881 (P6, question 6 asks for conditions "most dangerous first", from the orchestrator's caregiver research). Package 9,382 of 9,385 words. Port static-pass 0/0, lint 0 errors (the same 4 accepted warnings), semcount 0/0, privscan clean. Grok round 56 reviews all four changes.

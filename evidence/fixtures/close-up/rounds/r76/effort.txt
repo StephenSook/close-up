@@ -1,0 +1,1 @@
+model gpt-6-astra, model_reasoning_effort=max (swap at 3.2 of 4 GB used, recorded 2026-11-13 04:53 EST)

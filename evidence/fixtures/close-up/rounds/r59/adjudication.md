@@ -1,0 +1,5 @@
+# Round 59 adjudication (Codex, diff-scoped, written 2026-11-12 20:35 EST, shell clock)
+
+Report: codex.md, exit 0, 11 lines read in full. CRITICAL 0, HIGH 0, MEDIUM 1, LOW 0.
+
+1. MEDIUM, M37 has no missing-date form. Real. SKILL.md step 5b allows "With no date taken, use the file date given with the path and say so, or say the date is missing", and step 6 sends M37 for each candidate, so a candidate with no date had no fixed form. ADOPTED with a different wording. Codex's smallest fix ("{date (capture or file), or date missing}") leaves the rendered date open ("(capture)" against "(capture date)"), which a fixed line is meant to remove. Fix 3c50a67: M37 adds the variant sentence 'With no date, "date missing" replaces "{date} ({capture or file date})".', in the same form as the folder-route sentence. G29 and its assertion gained the form before any run (3ec1e6b), proven on a planted "date missing" line (pass) and a "date missing (file date)" line (fail). Ceiling 9,490 on the orchestrator's go (afb17d4), which also pays for the C36 case line. Package 9,488 words.

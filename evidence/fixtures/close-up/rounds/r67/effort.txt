@@ -1,0 +1,1 @@
+model grok-4.7, reasoning effort xhigh, package b2 74c1f21, started 2026-11-13 00:28 EST

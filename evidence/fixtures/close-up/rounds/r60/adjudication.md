@@ -1,0 +1,8 @@
+# Round 60 adjudication (Grok, diff-scoped, written 2026-11-12 20:49 EST, shell clock)
+
+Report: grok.md, exit 0, 27 lines read in full, grok.err empty. CRITICAL 0, HIGH 0, MEDIUM 1, LOW 1.
+
+1. MEDIUM, M37's "check did not run" form has no source for its slots. Real. Both photo delegations ended the unread branch with "If the check cannot read them, say so and return the 3 newest.", while only the pass branch asks for the date, capture or file date, library and why shown, so M37's unread line had no {date}, {library} or {reason} to fill. "Visible: not checked." also named no exact span, so it could render as "not checked..". final15 did not show it because C04's fixture reply supplied dates and libraries the delegation never asked for. ADOPTED, Grok's direction. Fix 5a64cd4: the album delegation's unread branch returns "the 3 newest, each with the photo item, date taken and whether it is the capture or file date, and library", the folder delegation's "each with the path, the date and whether it is the capture or file date", and M37's tail reads 'When the check did not run, "Visible: not checked. Shown: one of the 3 newest." replaces "Visible: {traits} (AI description, may be wrong). Shown: {reason}."'. C04's fixture reply gives each unread photo its capture date and G29's not-checked form is exact, both before any run (cea16a5).
+2. LOW, the merged C11/C36 case line let M6 stand for C36 and M37 for C11. Real. ADOPTED in 5a64cd4: C11's line is back to "A folder of six unsuitable photos. Expected: M6, never M8." and C36 has its own line, "C11, but two are clear. Expected: M37 without a library, never M6."
+
+Ceiling 9,540 on the orchestrator's go (ab1c57f). Package 9,536 words.

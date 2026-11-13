@@ -1,0 +1,1 @@
+model gpt-6-astra, effort max (memory_pressure free 38%, swap 6888 of 8192 MB used, 84%, near its limit, so max not ultra), package b2 f7b4a3f, started 2026-11-13 01:33 EST
