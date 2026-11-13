@@ -10,8 +10,10 @@ https://www.alz.org/help-support/caregiving/stages-behaviors/wandering
 - "If the person is not found within 15 minutes, call 911 to file a missing person's report. Inform the authorities that the person has dementia."
 - "Create a list of places the person might wander to, such as past jobs, former homes, places of worship or a favorite restaurant."
 - "Identify potentially dangerous areas near the home, such as bodies of water, open stairwells, dense foliage, tunnels, bus stops and roads with heavy traffic."
+- "If applicable, search areas the person has wandered to in the past."
+- "wandering patterns generally follow the direction of the dominant hand."
 
-Used for: "say they have dementia" in M19, questions 8, 9 and 12. The 15-minute line is US guidance, not used as a wait.
+Used for: "say they have dementia" in M19, questions 2, 8, 9, 12 and 22, and M29. The 15-minute search is not used as a wait: M19 says to call first, as the search-and-rescue leader and the police email advise.
 
 ## Alzheimer's Foundation of America, Dementia and Wandering: Reducing the Risks
 
@@ -63,3 +65,37 @@ Paraphrased from the same call:
 - Update the page as their condition changes.
 
 Used for: M19, questions 1, 7 to 10, 13 and 14, E1 to E3, and the refresh wording.
+
+## A Cobb County Police community affairs officer, email, Nov 12 2026
+
+Paraphrased, not quoted:
+- Call the police at once. Police want the full name and date of birth, a recent photo, what they were last seen wearing, places they often visit or may be drawn to, and known medical conditions.
+- Clothing also shows a weather risk, such as hypothermia in cold months.
+- A Project Lifesaver flyer sent with the email: the person wears a transmitter bracelet, and the dispatcher uses its number to send a search team with receivers.
+
+Used for: questions 1 and 15, the E1 clothing question, the Dressed for the weather and Programs lines, M19 and M27.
+
+## FBI Law Enforcement Bulletin, Perspective: Registries for Persons Prone to Wandering
+
+https://leb.fbi.gov/articles/perspective/perspective-registries-for-persons-prone-to-wandering (published 2023-02-09)
+
+- "Cell phone number and carrier"
+- "Year, make, model, color, and registration of vehicles owned"
+
+Used for: questions 20 and 21. The same form asks for Social Security and driver's license numbers. The page never carries them.
+
+## US Office of Justice Programs, A Guide to Law Enforcement on Voluntary Registry Programs for Vulnerable Populations (2017)
+
+https://ojp.gov/ncjrs/virtual-library/abstracts/guide-law-enforcement-voluntary-registry-programs-vulnerable
+
+- "the direction in which they tend to wander"
+
+Used for: question 11 and the direction line.
+
+## Caregiver forum threads, read on 2026-11-12
+
+46 threads (Reddit, ALZConnected, Alzheimer's Society UK forum, AgingCare) and 9 news stories, tallied by hand. Paraphrased: 11 threads had the person head to a place from their past, 8 had them not dressed for the weather, 5 said the car or phone mattered, 3 mentioned where they had been found before, and 7 kept a medicine list (indirect).
+
+A second read on Nov 12 2026, re-checked thread by thread, kept 41 threads: in 18 the person headed somewhere from their past, in 14 clothing or the weather mattered, and in 16 a tracker or ID was missing or failed.
+
+Used for: the E1 clothing question, the label photos in question 6, questions 20 to 22, and M29.

@@ -11,7 +11,7 @@
 
 ## Third-party components
 
-None. The package is Markdown only. It quotes three public guidance pages and one interview, listed in [sources](sources.md).
+None. The package is Markdown only. It quotes public guidance pages and one interview, and paraphrases a police email and caregiver threads, all listed in [sources](sources.md).
 
 ## Built during the hackathon
 
@@ -20,3 +20,7 @@ All of it, written for this hackathon. Work began on 2026-11-11.
 ## Test data and stand-ins
 
 No real person with dementia, no real caregiver and no real care papers were used. Test notes and expert replies are made up and labelled as made up. In photo tests the person is played by two consenting adults, the entrant and one other, labelled as stand-ins wherever they appear.
+
+## Licence, author and version
+
+MIT licence. Author: Stephen Sookra, individual entrant. Version 1.1. Source: https://github.com/StephenSook/close-up. Not made or endorsed by UGREEN.
