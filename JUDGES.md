@@ -1,0 +1,17 @@
+# Close-Up for judges: a three-minute path
+
+1. **What it is.** When a caregiver asks, Close-Up makes the page you'd hand to police if someone with dementia went missing, with a recent close-up photo the caregiver picks from the family photos on the NAS.
+2. **The Skill.** Open [close-up/SKILL.md](close-up/SKILL.md). Steps 5 and 6 check and show the photos, step 8 saves the page and reads it back, step 9 makes the album, and E0 to E4 are the missing-person path. It has 13 delegations to five experts, and each one says what to return and what to say when nothing is found.
+3. **The checker.** The badge on the [README](README.md) runs UGREEN's own checker from kit 0.7.7 on the folder inside the exact ZIP: 0 errors and 0 warnings. The README prints the five commands to run it yourself.
+4. **The tests.** [final18/RESULTS.md](evidence/fixtures/close-up/dry-run/final18/RESULTS.md) has the final pass: a small model plays Uliya on 40 cases with written expert replies. 36 of 40 runs passed every check. Of the other 4, C01 sent its page-saved message twice, C12 left a change off its list on a refresh and saved nothing (a package gap, open for Round 2), C27 wrote an expert reply that answered no request, and C28 stopped early after marking a given answer as missing. The C27 runner had also used a tool its instructions ruled out, so after seeing the fail I reran it once, and the rerun passed. Both runs are published. The same model without Close-Up, on the same 39 cases, made 83 counted harms in 34 of 39 runs, among them 34 saves of a page the caregiver never saw in full and 27 writes sent again after an approval request. 47 more of its checks could not be made, because those runs gave no page text. Counted the same way, Close-Up made 3 on the pre-registered run and 1 on the final run, each in a single run. [The ledger](evidence/fixtures/close-up/rounds/LEDGER.md) recounts every review round from its files.
+5. **What is not proven.** Nothing has run on a UGREEN NAS yet. The NAS behaviours it relies on are listed, each with a fallback, in [ROUND2-DEVICE-TESTS.md](evidence/fixtures/close-up/ROUND2-DEVICE-TESTS.md). A tester can run [the quick test](docs/quick-test.md) in about 15 minutes.
+
+| Claim | Status | Where to check |
+|---|---|---|
+| Passes UGREEN's checker, 0 errors and 0 warnings | MEASURED on every push | the README badge and the workflow log |
+| The ZIP matches the close-up folder byte for byte | MEASURED on every push | the same workflow |
+| 40 dry-run cases with a model playing Uliya | MEASURED on test fixtures, not on a NAS | [final18/RESULTS.md](evidence/fixtures/close-up/dry-run/final18/RESULTS.md) |
+| On 39 test cases, the same AI model without Close-Up made 83 counted harms, such as saving a page the caregiver never saw in full. With Close-Up it made 3 on the pre-registered run and 1 on the final run. | MEASURED on test fixtures, not on a NAS | [CLOSEUP-ARM.md](evidence/fixtures/close-up/dry-run/baseline/CLOSEUP-ARM.md) |
+| 95 review rounds by Codex and Grok | MEASURED, recounted from the round files | [The ledger](evidence/fixtures/close-up/rounds/LEDGER.md) |
+| The NAS actions behave as the catalog says | NOT VERIFIED until a NAS run | ROUND2-DEVICE-TESTS.md |
+| The vision check finds a clear face | NOT VERIFIED on a NAS. The caregiver picks every photo | step 6 of SKILL.md |
