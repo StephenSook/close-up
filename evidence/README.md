@@ -28,7 +28,7 @@ python3 -I fixtures/close-up/tools/ledger.py --check
 python3 -I fixtures/close-up/tools/recount.py final18
 ```
 
-The first command rebuilds the review ledger from the round files and exits non-zero if it differs from LEDGER.md. The second regrades the saved release-run transcripts with that run's frozen graders and prints the same totals as final18/RESULTS.md, with the C27 rerun shown on its own. Replace final18 with final17 or final16 to recount those runs. It exits non-zero on any total that differs from RESULTS.md, any grader file whose hash differs from the one RESULTS.md lists, or any check that could not run.
+The first command rebuilds the review ledger from the round files and exits non-zero if it differs from LEDGER.md. The second regrades the saved release-run transcripts with that run's frozen graders and prints the same totals as final18/RESULTS.md, with the C27 rerun shown on its own. Replace final18 with final17 or final16 to recount those runs. It exits non-zero on any total that differs from the RESULTS.md value copied into recount.py, any grader file whose hash differs from the one RESULTS.md lists, or any check that could not run.
 
 ## What this public copy leaves out
 
