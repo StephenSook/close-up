@@ -1,6 +1,6 @@
 # Evidence: everything behind the numbers
 
-Every number in the README, the Devpost write-up and the PDF comes from a file in this folder. Nothing here has run on a real UGREEN NAS. These are fixture runs: a small model (Claude Haiku, model ID claude-haiku-5-5, from each runner's task log) plays Uliya, and written replies stand in for the NAS experts. All people and data in them are made up.
+Every test, run and review number in the README, the Devpost write-up and the PDF comes from a file in this folder. The caregiver and wandering figures cite their own published sources. Nothing here has run on a real UGREEN NAS. These are fixture runs: a small model (Claude Haiku, model ID claude-haiku-5-5, from each runner's task log) plays Uliya, and written replies stand in for the NAS experts. All people and data in them are made up.
 
 ## What is here
 
@@ -17,7 +17,7 @@ Every number in the README, the Devpost write-up and the PDF comes from a file i
 | fixtures/close-up/rounds/ | Every Codex and Grok review report and its verdicts, plus LEDGER.md |
 | fixtures/close-up/tools/ | ledger.py rebuilds LEDGER.md from the round files, and recount.py regrades a run with that run's own graders and package |
 | tools/semcheck.py | Checks every action the steps expect against UGREEN's capability catalog (run it with the catalog from the kit the main README downloads) |
-| fixtures/close-up/ROUND2-DEVICE-TESTS.md | The NAS behaviours the package relies on, each with a fallback, all NOT VERIFIED until a NAS run |
+| fixtures/close-up/ROUND2-DEVICE-TESTS.md | The NAS behaviours the package relies on, with the fallback where one exists, all NOT VERIFIED until a NAS run |
 
 ## Recount it yourself
 
@@ -28,10 +28,10 @@ python3 -I fixtures/close-up/tools/ledger.py --check
 python3 -I fixtures/close-up/tools/recount.py final18
 ```
 
-The first command rebuilds the review ledger from the round files and compares it with LEDGER.md. The second regrades the saved release-run transcripts with that run's frozen graders and prints the same totals as final18/RESULTS.md, with the C27 rerun shown on its own. Replace final18 with final17 or final16 to recount those runs. Each command exits non-zero on any mismatch, any changed grader file or any crashed check.
+The first command rebuilds the review ledger from the round files and exits non-zero if it differs from LEDGER.md. The second regrades the saved release-run transcripts with that run's frozen graders and prints the same totals as final18/RESULTS.md, with the C27 rerun shown on its own. Replace final18 with final17 or final16 to recount those runs. It exits non-zero on any total that differs from RESULTS.md, any grader file whose hash differs from the one RESULTS.md lists, or any check that could not run.
 
 ## What this public copy leaves out
 
 - Three sentences in baseline/PREREG.md that named another hackathon entry and its published numbers. The file says where.
-- In each round's brief-inline.md, the catalog, kit and package text pasted below the first "=====" line, about 3.9 MB. The opening that ledger.py reads is kept.
+- In each round's brief-inline.md, the catalog, kit and package text pasted below the first "=====" line. The opening that ledger.py reads is kept.
 - The package copies and diffs inside each round folder. The package itself is close-up/ at the top of this repo.

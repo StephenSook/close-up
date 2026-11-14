@@ -55,4 +55,4 @@ You should not see:
 
 ## Not verified yet
 
-The NAS behaviours the package relies on are listed, with a fallback for each, in [ROUND2-DEVICE-TESTS.md](../evidence/fixtures/close-up/ROUND2-DEVICE-TESTS.md). Until a NAS run, every one of them is NOT VERIFIED.
+The NAS behaviours the package relies on are listed, with the fallback where one exists, in [ROUND2-DEVICE-TESTS.md](../evidence/fixtures/close-up/ROUND2-DEVICE-TESTS.md). Until a NAS run, every one of them is NOT VERIFIED.
